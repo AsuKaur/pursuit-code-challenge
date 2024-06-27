@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 interface Request {
     id: string;
     title: string;
@@ -16,7 +15,6 @@ const RequestList: React.FC = () => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
     const limit = 10;
-
     useEffect(() => {
         const fetchRequests = async () => {
             setLoading(true);
@@ -40,8 +38,7 @@ const RequestList: React.FC = () => {
 
     if (loading) return <div>Loading</div>;
     if (error) return <div>Error</div>;
-    if (requests.length === 0) return <div>No requests</div>;
-
+    if (!requests.length) return <div>No requests</div>;
     const totalPages = Math.ceil(total / limit);
 
     return (
@@ -58,9 +55,9 @@ const RequestList: React.FC = () => {
                 <button onClick={() => setPage(page - 1)} disabled={page === 1}>
                     Previous
                 </button>
-                <span>
+                <div>
                     Page {page} of {totalPages}
-                </span>
+                </div>
                 <button
                     onClick={() => setPage(page + 1)}
                     disabled={page === totalPages}

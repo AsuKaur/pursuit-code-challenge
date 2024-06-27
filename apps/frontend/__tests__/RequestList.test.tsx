@@ -1,7 +1,6 @@
-// __tests__/RequestList.test.tsx
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 import RequestList from "../views/requestList";
 
 // Mock the fetch function
@@ -12,9 +11,9 @@ global.fetch = jest.fn(() =>
                 requests: [
                     {
                         id: "1",
-                        headline: "First Request",
-                        date: "2023-06-15T14:48:00.000Z",
-                        user: "Alice",
+                        title: "First Request",
+                        createdAt: "2023-06-15T14:48:00.000Z",
+                        author: "Alice",
                     },
                 ],
                 total: 1,
@@ -25,7 +24,7 @@ global.fetch = jest.fn(() =>
 describe("RequestList", () => {
     test("renders loading state initially", () => {
         render(<RequestList />);
-        expect(screen.getByText("Loading...")).toBeInTheDocument();
+        expect(screen.getByText("Loading")).toBeInTheDocument();
     });
 
     test("renders error state when fetch fails", async () => {
