@@ -1,0 +1,31 @@
+{
+  "name": "code-challenge",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@swc/core": "^1.4.13",
+    "@swc/jest": "^0.2.36",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-extended": "^4.0.2",
+    "nodemon": "^3.1.0",
+    "turbo": "latest",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@8.19.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
